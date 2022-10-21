@@ -38,4 +38,8 @@ const findChildrenInCityAndSortedByAge = (inputcity) => {
     return result;
 }
 
-findChildrenInCityAndSortedByAge('Maaskantje');
+const findPeopleNameStartWithLAndHasChildern = () => {
+    const result = data.filter(p => p['full name'].startsWith("L") && p.Children?.length > 0).map(p => p["full name"]);
+    return result;
+}
+console.log(findPeopleNameStartWithLAndHasChildern());
