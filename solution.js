@@ -8,11 +8,16 @@ const findPeopleInCityandSortByAge = (inputCity) => {
     console.log(result);
 }
 
-const findMostPopulatedCity = (inputCity) => {
+const findMostPopulatedCity = () => {
     const data = jsonFile.JsonFile();
-    const result = data
-        .reduce()
+    return data.reduce((acc, curr) => {
+        if (curr.Children?.length > 0) {
+            acc[curr.address.city] = acc[curr.address.city] ? acc[curr.address.city] + (1 + curr.Children.length) : (1 + curr.Children.length)
+        }
+        else {
+            acc[curr.address.city] = acc[curr.address.city] ? acc[curr.address.city] + 1 : 1
+        }
+        return acc;
+    }, {})
 }
-
-
-findPeopleInCityandSortByAge('Amsterdam');
+console.log(findMostPopulatedCity());
