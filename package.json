@@ -7,7 +7,8 @@
   "version": "1.0.0",
   "main": "solution.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "node solution.js"
   },
   "author": "",
   "license": "ISC",
