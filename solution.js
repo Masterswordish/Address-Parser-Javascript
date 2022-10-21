@@ -6,7 +6,6 @@ const findPeopleInCity = (inputCity) => {
         .filter(p => p.address.city === inputCity)
         .sort((a,b) =>);
     console.log(result);
-   // console.log()
 }
 
 findPeopleInCity('Amsterdam');
