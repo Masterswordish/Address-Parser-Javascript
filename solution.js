@@ -1,8 +1,12 @@
 const jsonFile = require("./JSON.js");
 
-const findPeopleInCity = (city) => {
-    const data = jsonFile.JsonFile()
-    console.log(data[0].address.city);
+const findPeopleInCity = (inputCity) => {
+    const data = jsonFile.JsonFile();
+    const result = data
+        .filter(p => p.address.city === inputCity)
+        .sort((a,b) =>);
+    console.log(result);
+   // console.log()
 }
 
-
+findPeopleInCity('Amsterdam');
