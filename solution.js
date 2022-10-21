@@ -5,7 +5,7 @@ const data = jsonFile.JsonFile();
 const findPeopleInCityandSortByAge = (inputCity) => {
     const result = data
         .filter(p => p.address.city === inputCity)
-        .sort((a,b) => b.Age -  a.Age);
+        .sort((a, b) => b.Age - a.Age);
     console.log(result);
 }
 
@@ -15,11 +15,27 @@ const findMostPopulatedCity = () => {
             .replace(' ', '')
         if (curr.Children?.length > 0) {
             acc[curr.address.city] = acc[curr.address.city] ? acc[curr.address.city] + (1 + curr.Children.length) : (1 + curr.Children.length)
-        }
-        else {
+        } else {
             acc[curr.address.city] = acc[curr.address.city] ? acc[curr.address.city] + 1 : 1
         }
         return acc;
     }, {})
-    return Object.entries(result).sort((a,b) => b[1] - a[1])[0][0]
+    return Object.entries(result).sort((a, b) => b[1] - a[1])[0][0]
 }
+
+const findChildrenInCityAndSortedByAge = (inputcity) => {
+    const result = data
+        .filter(p => p.address.city === inputcity)
+        .map(p => p.Children)
+        .flat()
+        .map(c => ({
+            name: c.Name,
+            age: c.Age
+        }))
+        .sort((a, b) => b.age - a.age);
+
+    console.log(result);
+    return result;
+}
+
+findChildrenInCityAndSortedByAge('Maaskantje');
