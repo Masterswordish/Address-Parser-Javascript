@@ -1,7 +1,8 @@
 const jsonFile = require("./JSON.js");
 
+const data = jsonFile.JsonFile();
+
 const findPeopleInCityandSortByAge = (inputCity) => {
-    const data = jsonFile.JsonFile();
     const result = data
         .filter(p => p.address.city === inputCity)
         .sort((a,b) => b.Age -  a.Age);
@@ -9,8 +10,9 @@ const findPeopleInCityandSortByAge = (inputCity) => {
 }
 
 const findMostPopulatedCity = () => {
-    const data = jsonFile.JsonFile();
-    return data.reduce((acc, curr) => {
+    const result = data.reduce((acc, curr) => {
+        curr.address.city = curr.address.city.replace('-', '')
+            .replace(' ', '')
         if (curr.Children?.length > 0) {
             acc[curr.address.city] = acc[curr.address.city] ? acc[curr.address.city] + (1 + curr.Children.length) : (1 + curr.Children.length)
         }
@@ -19,5 +21,5 @@ const findMostPopulatedCity = () => {
         }
         return acc;
     }, {})
+    return Object.entries(result).sort((a,b) => b[1] - a[1])[0][0]
 }
-console.log(findMostPopulatedCity());
