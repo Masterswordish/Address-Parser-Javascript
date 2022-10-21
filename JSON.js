@@ -1,6 +1,6 @@
 const JsonFile = () => { return [{ 
         "full name": "Pieter Stichting",
-        "address": {"street": "038 Adam Glen", "city": "Componistenkwartier"},
+        "address": {"street": "038 Adam Glen", "city": "Amsterdam"},
         "Age": 30,
         "Children": [{"Name": "Lillie Hackett", "Gender": "Female", "Age": 9}, {
             "Name": "Diane Ullrich",
@@ -14,7 +14,7 @@ const JsonFile = () => { return [{
         "Gender": "Male"
     }, {
         "full name": "Oliwier Bakker",
-        "address": {"street": "6042 Marion Estate", "city": "Surhuisterveen"},
+        "address": {"street": "6042 Marion Estate", "city": "Amsterdam"},
         "Age": 94,
         "Children": [{"Name": "Dana Cummings", "Gender": "Male", "Age": 5}, {
             "Name": "Derrick Sanford",
